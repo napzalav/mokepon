@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@1,300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #041562;
+    /* background-image: url(./assets/pokeneon.webp);
+    background-size: cover; */
+}
+
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    font-family: 'Permanent Marker', cursive;
+    color: goldenrod;
+    font-size: 48px;
+}
+
+.subtitulo{
+    color: aliceblue;
+    font-size: 24px;
+}
+
+.tarjetas, .tarjetas-ataques {
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+width: 200px;
+height: 120px;
+background: #11468f;
+padding: 10px;
+box-sizing: border-box;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: aliceblue;
+}
+
+.tarjeta-de-mokepon img{
+    width: 90px;
+}
+
+.tarjeta-de-mokepon:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+    transition: background-color .5s;
+    height: 125px;
+    transition: height .5s;
+}
+
+#boton-mascota {
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    background: transparent;
+    border-color: goldenrod;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+
+#boton-mascota:hover{
+    background-color: goldenrod;
+    transition: background-color .9s;
+    color: #041562;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    background-color: goldenrod;
+    box-shadow: -1px -2px 50px 5px yellow;
+}
+
+#seleccionar-ataque {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .boton-de-ataque {
+    background: #11468f;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: goldenrod;
+    width: 100px;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+} */
+
+#boton-fuego {
+    background: crimson;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: goldenrod;
+    width: 150px;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+}
+
+#boton-agua {
+    background: #11468f;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: goldenrod;
+    width: 150px;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+}
+
+#boton-tierra {
+    background: seagreen;
+    /* background: #444; */
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: goldenrod;
+    width: 150px;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+}
+
+#mensajes {
+    width: 270px;
+    background: rgba(51, 115, 243, 0.322);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: aliceblue;
+}
+
+#boton-reiniciar {    
+    background: #041562;
+    border-radius: 20px;
+    border-color: goldenrod;
+    color: gold;
+    font-family: 'Poppins', sans-serif;
+    width: 200px;
+}
+
+.ataques {        
+    display: grid;
+    grid-template-columns: 100px 100px;
+    color: aliceblue;
+}
+
+#vidas-jugador, #vidas-enemigo {
+    font-size: 48px;
+    margin-bottom: 0;
+}
+
+.ataques-jugador, .ataques-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 425px) {
+    .tarjetas, .tarjetas-ataques {
+        flex-direction: column;
+    }
+}

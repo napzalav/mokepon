@@ -33,7 +33,7 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
 
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display = 'block'
+    sectionSeleccionarAtaque.style.display = 'flex'
     
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
@@ -41,6 +41,33 @@ function seleccionarMascotaJugador() {
     let inputLangostelvis = document.getElementById('langostelvis')
     let inputTucapalma = document.getElementById('tucapalma')
     let inputPydos = document.getElementById('pydos')
+
+    // let image = new Image(80);
+
+    // if(inputHipodoge){
+    //     image.src = 'assets/mokepons_mokepon_hipodoge_attack.webp';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else if(inputCapipepo){
+    //     image.src = 'assets/mokepons_mokepon_capipepo_attack.webp';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else if(inputRatigueya){
+    //     image.src = 'assets/mokepons_mokepon_ratigueya_attack.webp';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else if(inputLangostelvis){
+    //     image.src = 'assets/langostelvis.png';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else if(inputTucapalma){
+    //     image.src = 'assets/tucapalma.png';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else if(inputPydos){
+    //     image.src = 'assets/pydos.png';
+    //     document.querySelector('#vidas-jugador').appendChild(image);
+    // } else {
+    //     alert('Selecciona una mascota');
+    //     location.reload();
+    // }
+
+    // ========================================================================
     
     let spanMascotaJugador = document.getElementById('mascota-jugador')
 
@@ -66,7 +93,33 @@ function seleccionarMascotaJugador() {
 
 //En esta funcion nuestro enemigo selecciona su mascota de forma aleatoria
 function seleccionarMascotaEnemigo() {
-    let mascotaAleatoria = aleatorio(1,6)
+    let mascotaAleatoria = aleatorio(1,6);
+
+    // let image = new Image(80);
+
+    // if(mascotaAleatoria === 1){
+    //     image.src = 'assets/mokepons_mokepon_hipodoge_attack.webp';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // } else if (mascotaAleatoria === 2){
+    //     image.src = 'assets/mokepons_mokepon_capipepo_attack.webp';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // } else if (mascotaAleatoria === 3){
+    //     image.src = 'assets/mokepons_mokepon_ratigueya_attack.webp';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // } else if(mascotaAleatoria === 4){
+    //     image.src = 'assets/langostelvis.png';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // } else if(mascotaAleatoria === 5){
+    //     image.src = 'assets/tucapalma.png';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // } else if(mascotaAleatoria === 6){
+    //     image.src = 'assets/pydos.png';
+    //     document.querySelector('#vidas-enemigo').appendChild(image);
+    // }
+
+
+    //====================================================================
+
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
     if (mascotaAleatoria === 1) {
@@ -156,26 +209,36 @@ function revisarVidas() {
 //al parrafo le insertamos un texto mediante .innerHTML que dice el ataque de nuestro jugador y nuestro enemigo
 //luego metemos este parrafo dentro de la seccion de 'mensajes'
 //nuestra variable 'resultado' es en realidad un parametro que estamos recibiendo de la funcion 'combate' por medio de argumentos
+
+//en la edicion del css alteramos la estructura html y creamos nuevos ID, cambié el id 'mensajes' dentro del getElementById por el id 'resultado'
+//creamos dos variables mas que son la de ataquesDelJugador y ataquesDelEnemigo
+//creamos 3 nuevos parrafos 'notificacion', 'nuevoAtaqueDelJugador' y 'nuevoAtaqueDelEnemigo' y agregamos los parrafos dentro de los elementos creados
 function crearMensaje(resultado) {
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
+    let ataquesDelJugador = document.getElementById('ataques-del-jugador')
+    let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota de tu enemigo atacó con ' + ataqueEnemigo + '- ' + resultado
+    let nuevoAtaqueDelJugador = document.createElement('p')
+    let nuevoAtaqueDelEnemigo = document.createElement('p')
 
-    sectionMensajes.appendChild(parrafo)
-}
+    sectionMensajes.innerHTML = resultado
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
+    }
 
 //Creamos un parrafo, un elemento de tipo 'p'
 //este parrafo contiene el mensaje final de la batalla, nos dirá si perdimos o ganamos
 //lo que hacemos con el innerHTML de este nuevo parrafo es que le decimos que sea igual al resultadoFinal. entonces lo que hacemos es utilizar la funcion de crearMensajeFinal y si ganamos o perdemos entonces enviamos como argumento el resultado final(cambiandolo por un texto de felicitaciones o condolencias respectivamente) a la funcion 'revisarVidas'
 //Cada vez que llamemos a la funcion 'crearMensajeFinal' significa que o perdimos o ganamos, por eso una vez que el contador de vida del jugador o del enemigo llegan a cero (0) los botones de ataque (botonFuego, botonAgua, botonTierra) se deshabilitaran poniendo su propiedad,el atributo 'disabled' en el valor true
+
+//cambiamos el id 'mensajes' dentro del getElementById por 'resultado'
 function crearMensajeFinal(resultadoFinal) {
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
-
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultadoFinal
 
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true
